@@ -1,6 +1,7 @@
 package com.myshare.core;
 
 import com.myshare.forms.MyLoginForm;
+import com.myshare.forms.RegisterForm;
 import com.vaadin.Application;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.ui.*;
@@ -25,7 +26,8 @@ public class MyshareApplication extends Application {
 		
 		MyShareWindow(){
 			
-			
+			RegisterForm userForm = new RegisterForm();
+			addComponent(userForm);
 			
 		}
 		
