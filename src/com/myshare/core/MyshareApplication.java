@@ -19,6 +19,11 @@ ClickListener, ValueChangeListener, ItemClickListener {
 	 */
 	private static final long serialVersionUID = -8348580599341774118L;
 	private NavigationTree tree = new NavigationTree(this);
+	
+
+    private Label heading = new Label("My Share");
+
+	
     private HorizontalSplitPanel horizontalSplit = new HorizontalSplitPanel();
 
 	
@@ -38,8 +43,10 @@ ClickListener, ValueChangeListener, ItemClickListener {
 		// TODO Auto-generated method stub
 		
         setMainWindow(new Window("Whats My Share"));
+        
 
-        setTheme("contacts");
+        setTheme("myshare");
+
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
@@ -60,17 +67,15 @@ ClickListener, ValueChangeListener, ItemClickListener {
     private HorizontalLayout createToolbar() {
         HorizontalLayout lo = new HorizontalLayout();
 
+        lo.addComponent(heading);
+        
         lo.setMargin(true);
         lo.setSpacing(true);
-
+        
         lo.setStyleName("toolbar");
 
         lo.setWidth("100%");
 
-        Embedded em = new Embedded("", new ThemeResource("images/logo.png"));
-        lo.addComponent(em);
-        lo.setComponentAlignment(em, Alignment.MIDDLE_RIGHT);
-        lo.setExpandRatio(em, 1);
 
         return lo;
     }
