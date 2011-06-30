@@ -1,4 +1,4 @@
- @import url(../runo/styles.css);
+ @import url(../reindeer/styles.css);
 /* Using the old default theme (runo) as the basis for now */
 
 /* Add some padding to the tree */
@@ -49,15 +49,16 @@
  
 
 .v-app {
-      background: #d0e2ec;
+      background: #ccc;
       font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
       color: #222;
 }
 
 .toolbar {
-      background: #ccc;
+      background: #000 transparent;
       border-bottom: 1px;
-      height: 30px;
+      height: 20px;
+      margin: 0px 0px 0px 0px;
 }
 
 .v-panel-caption-view {
@@ -116,3 +117,10 @@
       font-size: 85%;
 }
 
+.v-horizontallayout {
+       margin: 0px 0px 0px 0px;
+}
+ 
+.loginBox {
+ 	   margin-left: 400px;
+}

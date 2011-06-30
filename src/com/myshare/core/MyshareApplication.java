@@ -1,5 +1,8 @@
 package com.myshare.core;
 
+import org.apache.xalan.xsltc.runtime.MessageHandler;
+
+import com.myshare.forms.MyLoginForm;
 import com.vaadin.Application;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
@@ -48,6 +51,10 @@ ClickListener, ValueChangeListener, ItemClickListener {
         setTheme("myshare");
 
 
+        Boolean loggedIn = hasLoggedIn();
+        
+       if(loggedIn){ 
+        
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
 
@@ -60,20 +67,36 @@ ClickListener, ValueChangeListener, ItemClickListener {
 
         getMainWindow().setContent(layout);
 
-		
+       }
 	}
 	
 
-    private HorizontalLayout createToolbar() {
+    private Boolean hasLoggedIn() {
+    	
+    	Boolean loggedIn = false;
+    	
+    	MyLoginForm myLoginForm = new MyLoginForm();
+    	
+    	
+    	
+    	VerticalLayout layout = new VerticalLayout();
+    	//layout.setSizeFull();
+    	layout.addStyleName("loginBox");
+    	getMainWindow().showNotification(
+                ("You have not logged Please login"));
+    	layout.addComponent(myLoginForm);
+    	getMainWindow().setContent(layout);
+    	
+    	
+    	return loggedIn;
+	}
+
+	private HorizontalLayout createToolbar() {
         HorizontalLayout lo = new HorizontalLayout();
 
         lo.addComponent(heading);
-        
-        lo.setMargin(true);
-        lo.setSpacing(true);
-        
         lo.setStyleName("toolbar");
-
+  
         lo.setWidth("100%");
 
 
