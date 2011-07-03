@@ -14,7 +14,7 @@ public class dataStoreHelper {
 	    Boolean userExists = false ;
 		Connection dbconn = getConnection();
 		Statement stmt = null;
-		String sql = "select * from USERS where login_id='"+username+"' and password='"+password+"'";
+		String sql = "select * from USERS where login_id='"+username+"'	 and password='"+password+"'";
 		try {
 			
 			 stmt = dbconn.createStatement();
@@ -24,12 +24,10 @@ public class dataStoreHelper {
 		        String fullName = rs.getString("name");
 		        System.out.println(fullName);
 		        if(fullName.length() != 0){
-		        	
 		        	userExists = true;
-		        	
-		        } 
-		      
-		}}
+		           } 
+		      	}
+		      }
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

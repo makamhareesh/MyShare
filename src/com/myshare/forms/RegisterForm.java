@@ -33,8 +33,8 @@ public class RegisterForm  extends VerticalLayout{
 
         // Determines which properties are shown, and in which order:
         personForm.setVisibleItemProperties(Arrays.asList(new String[] {
-                "name", "login_id", "email", "password",
-                "user_id" }));
+                "name", "login_id", "email", "password"
+                }));
 
         // Add form to layout
         addComponent(personForm);
@@ -55,9 +55,11 @@ public class RegisterForm  extends VerticalLayout{
         Button apply = new Button("Apply", new Button.ClickListener() {
             public void buttonClick(ClickEvent event) {
                 try {
-                    personForm.commit();
+                	
+                	
+                	
                 } catch (Exception e) {
-                    // Ignored, we'll let the Form handle the errors
+                    e.printStackTrace();
                 }
             }
         });

@@ -1,12 +1,16 @@
 package com.myshare.forms;
 import com.myshare.util.dataStoreHelper;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.LoginForm;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.LoginForm.LoginEvent;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window.Notification;
 
 @SuppressWarnings("serial")
-public class MyLoginForm extends VerticalLayout {
+public class MyLoginForm extends VerticalLayout{
 
     public MyLoginForm() {
     	
@@ -28,14 +32,18 @@ public class MyLoginForm extends VerticalLayout {
                         "Welcome : " + event.getLoginParameter("username")
                                );
             } else {
-            	  getWindow().showNotification(
-                          "Error Login",
-                          "User Does not exists : Please register ",Notification.TYPE_ERROR_MESSAGE
-                                 );
+            	  //getWindow().showNotification(
+                  //        "Error Login",
+                  //        "User Does not exists : Please register ",Notification.TYPE_ERROR_MESSAGE
+                  //               );
+            	
+            	  getWindow().addComponent(new Label("User doesnt exist. Please click on register."));
+            	  
             }
             	}
         });
         addComponent(login);
 
     }
+
 }

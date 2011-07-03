@@ -3,6 +3,7 @@ package com.myshare.core;
 import org.apache.xalan.xsltc.runtime.MessageHandler;
 
 import com.myshare.forms.MyLoginForm;
+import com.myshare.forms.RegisterForm;
 import com.vaadin.Application;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
@@ -22,6 +23,8 @@ ClickListener, ValueChangeListener, ItemClickListener {
 	 */
 	private static final long serialVersionUID = -8348580599341774118L;
 	private NavigationTree tree = new NavigationTree(this);
+
+	private  Button register = new Button("Register");
 	
 
     private Label heading = new Label("My Share");
@@ -77,21 +80,25 @@ ClickListener, ValueChangeListener, ItemClickListener {
     	
     	MyLoginForm myLoginForm = new MyLoginForm();
     	
-    	
-    	
     	VerticalLayout layout = new VerticalLayout();
     	//layout.setSizeFull();
     	layout.addStyleName("loginBox");
     	getMainWindow().showNotification(
                 ("You have not logged Please login"));
     	layout.addComponent(myLoginForm);
+    	
+    	layout.addComponent(register);
+
+    	register.addListener((ClickListener) this);
+    	
     	getMainWindow().setContent(layout);
     	
     	
     	return loggedIn;
 	}
 
-	private HorizontalLayout createToolbar() {
+    
+    private HorizontalLayout createToolbar() {
         HorizontalLayout lo = new HorizontalLayout();
 
         lo.addComponent(heading);
@@ -114,9 +121,33 @@ ClickListener, ValueChangeListener, ItemClickListener {
 	}
 
 	public void buttonClick(ClickEvent event) {
-		// TODO Auto-generated method stub
+
+        final Button source = event.getButton();
+
+        if (source == register) {
+            displayRegisterForm();
+        }
 		
 	}
+	
+	private void displayRegisterForm() {
+
+		
+		RegisterForm registerForm = new RegisterForm();
+    	
+    	VerticalLayout layout = new VerticalLayout();
+    	//layout.setSizeFull();
+    	layout.addStyleName("loginBox");
+    	layout.addComponent(registerForm);
+    	layout.addComponent(register);
+  	  
+    	
+    	getMainWindow().setContent(layout);
+    	
+		
+	}
+
+
 
 }
 
