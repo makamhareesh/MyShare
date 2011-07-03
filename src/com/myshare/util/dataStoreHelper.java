@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.myshare.vo.PersonVO;
+import com.vaadin.ui.Form;
 
 public class dataStoreHelper {
 	
@@ -38,6 +39,48 @@ public class dataStoreHelper {
 		
 		
 	}
+	
+	public Boolean checkUser(String username){
+	    Boolean userExists = false ;
+		Connection dbconn = getConnection();
+		Statement stmt = null;
+		String sql = "select * from USERS where login_id='"+username;
+		try {
+			
+			 stmt = dbconn.createStatement();
+		      ResultSet rs = stmt.executeQuery(sql);
+		      
+		      while (rs.next()) {
+		        String fullName = rs.getString("name");
+		        System.out.println(fullName);
+		        if(fullName.length() != 0){
+		        	userExists = true;
+		           } 
+		      	}
+		      }
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return userExists;
+		
+		
+	}
+	
+	public Boolean addUser(Form personForm){
+		
+		Boolean userAdded = false;
+		
+		
+		
+		
+		return userAdded;
+		
+		
+	}
+	
 
 	
 	public Connection getConnection(){

@@ -2,6 +2,7 @@ package com.myshare.forms;
 
 import java.util.Arrays;
 
+import com.myshare.util.dataStoreHelper;
 import com.myshare.vo.PersonVO;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.Alignment;
@@ -16,6 +17,8 @@ public class RegisterForm  extends VerticalLayout{
 	
     // the 'POJO' we're editing
     PersonVO person;
+    
+    dataStoreHelper dsHelper = new dataStoreHelper();
     
     public RegisterForm(){
     	
@@ -56,7 +59,7 @@ public class RegisterForm  extends VerticalLayout{
             public void buttonClick(ClickEvent event) {
                 try {
                 	
-                	
+                	Boolean userAdded = dsHelper.addUser(personForm);
                 	
                 } catch (Exception e) {
                     e.printStackTrace();
